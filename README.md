@@ -8,7 +8,10 @@
   Snot Rocket Data
 </h1>
 
-React based cycling analytics
+## React based cycling analytics
 
+### Get started
 
+``` npm start ```
 
+navigate to ```http://localhost:8000/```
