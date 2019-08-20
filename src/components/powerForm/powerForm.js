@@ -1,10 +1,12 @@
 import React from "react"
 import "./form.css"
+import ScoreValue from "../scoreBlock/index"
 
 const calculateVariance = (baseline, power, fpValue)  => {
   let difference = baseline - power
   let percentage = Math.floor( (difference / baseline) * 100 )
-  return {[fpValue]: percentage} 
+  let vv = (fpValue === "valueB") ? "fatigueVarienceA" : "fatigueVarienceB"
+  return {[vv]: percentage} 
 }
 
 class PowerForm extends React.Component {
@@ -22,8 +24,8 @@ class PowerForm extends React.Component {
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value })
     let power = e.target.value
-    let fpValue = (e.target.name === "valueB") ? "b" : "c"
-    this.setState(calculateVariance(this.state.valueA, power, fpValue))
+    let newState = calculateVariance(this.state.valueA, power, e.target.name)
+    this.setState(newState)
   }
 
   render() {
@@ -35,21 +37,21 @@ class PowerForm extends React.Component {
             <div className="container__power-inputs">
             <h3 className="title">Power</h3>
                 <label>
-                {this.props.powerLables[0]}
+                {this.props.powerLabels[0]}
                 <input 
                   type="text" 
                   name="valueA" 
                   onChange={ this.onChange }/>
                 </label>
                 <label>
-                {this.props.powerLables[1]}
+                {this.props.powerLabels[1]}
                 <input 
                 type="text" 
                 name="valueB" 
                 onChange={ this.onChange }/>
                 </label>
                 <label>
-                {this.props.powerLables[2]}
+                {this.props.powerLabels[2]}
                 <input 
                 type="text" 
                 name="valueC" 
@@ -57,15 +59,12 @@ class PowerForm extends React.Component {
                 </label>
               </div>
               <div className="container__fatigue-values">
-                <h3 className="title">Fatigue Percentage</h3>
-                <h3 className="fatigue-percentage">{this.state.fatigueVarienceA}</h3>
-                <h3 className="fatigue-percentage">{this.state.fatigueVarienceB}</h3>
+                <h3 className="title fatigue-title">Fatigue Percentage</h3>
+                <ScoreValue percentage={this.state.fatigueVarienceA} title="5 second" />
+                <ScoreValue percentage={this.state.fatigueVarienceB} title="10 second" />
               </div>
             </div>
           </div>
-        <div className="fatigue-percentage">FATIGUE PROFILE A:{this.state.valueA}</div>
-        <div className="fatigue-percentage">FATIGUE PROFILE B:{this.state.fatigueVarienceA}</div>
-        <div className="fatigue-percentage">FATIGUE PROFILE C:{this.state.fatigueVarienceB}</div>
       </form>
     );
   }

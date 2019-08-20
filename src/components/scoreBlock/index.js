@@ -1,6 +1,8 @@
 import React from "react"
 import scoreBlock from "./scoreBlock.module.css";
 
+const formatP = p => (p >= 0) ?  `${p}%` : "0%"
+
 class ScoreValue extends React.Component {
   constructor(props) {
     super(props);
@@ -12,8 +14,8 @@ class ScoreValue extends React.Component {
     }
   }
 
-  formatP(p) {
-    return `${p}%`
+  componentWillReceiveProps(nextProps) {
+    this.setState({ percentage: nextProps.percentage });  
   }
 
   toggleScoreValue(value) {
@@ -24,7 +26,7 @@ class ScoreValue extends React.Component {
     return (
       <div className={scoreBlock.container__score} onClick={ () => this.toggleScoreValue("WAA") }>
         <div className={scoreBlock.title}>{ this.props.title }</div>
-        <div className={scoreBlock.percentage}>{ this.formatP(this.state.percentage) }</div>
+        <div className={scoreBlock.percentage}>{ formatP(this.state.percentage) }</div>
         <div className={scoreBlock.scoreValue}>{ this.state.score }</div>
       </div>
     )

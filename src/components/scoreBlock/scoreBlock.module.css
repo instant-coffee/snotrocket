@@ -12,6 +12,10 @@
   transform: scale(1.05)
 }
 
+.container__score:nth-of-type(2) {
+  grid-column-start: 3;
+}
+
 .title {
   color: #fff;
   text-align: center;

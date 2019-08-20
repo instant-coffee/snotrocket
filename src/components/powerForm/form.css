@@ -32,6 +32,12 @@
   grid-template-columns: 50% 50%;
 }
 
+.container__fatigue-values {
+  display: grid;
+  grid-template-rows: 30% auto 2rem;
+  grid-template-columns: 40% auto 40%;
+}
+
 @media screen and (max-width: 768px) {
   .container__power {
     width: 100%;
@@ -61,6 +67,11 @@
 
 .zone-title {
   color: #fff;
+}
+
+.fatigue-title {
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .title {
