@@ -25,14 +25,65 @@ class ScoreValue extends React.Component {
 
   whatIsScore = ( time, percentage ) => {
     console.log("time", time)
-
-    if (percentage <= 5){
-      return "WAA"
-    } else if ( (percentage > 5 ) && (percentage <= 10) ) {
-      return "AA"
+    switch (time) {
+      case "zone7a":
+          return this.zoneCalcA(percentage)
+        break;
+      case "zone7b":
+          return this.zoneCalcB(percentage)
+        break;
+      case "zone6a":
+          return this.zoneCalcA(percentage)
+        break;
+      case "zone6b":
+          return this.zoneCalcB(percentage)
+        break;
+      case "zone5a":
+        return this.zoneCalcA(percentage)
+        break;
+      case "zone5b":
+          return this.zoneCalcB(percentage)
+        break;
+      case "zone4a":
+          return this.zoneCalcA(percentage)
+        break;
+      case "zone4b":
+          return this.zoneCalcB(percentage)
+        break;
+      default:
+        break;
     }
-    else {
+  }
+
+  zoneCalcA = (percentage) => {
+    if ( ( percentage <= 5 ) && ( percentage <= 14) ){
+      return "WAA"
+    } else if ( ( percentage >= 15 ) && (percentage <= 21 ) ) {
+      return "AA"
+    } else if ( (percentage > 22 ) && (percentage <= 30 ) ) {
+      return "A"
+    } else if ( ( percentage > 31 ) && (percentage <= 40 ) ) {
+      return "BA"
+    } else if ( ( percentage > 41 ) ) {
       return "WBA"
+    } else {
+      return ""
+    } 
+  }
+
+  zoneCalcB = (percentage) => {
+    if ( (percentage <= 8 ) && (percentage <= 19) ){
+      return "WAA"
+    } else if ( ( percentage >= 20 ) && ( percentage <= 34 ) ) {
+      return "AA"
+    } else if ( ( percentage > 35 ) && ( percentage <= 46 ) ) {
+      return "A"
+    } else if ( ( percentage > 47 ) && ( percentage <= 60 ) ) {
+      return "BA"
+    } else if ( ( percentage > 61 ) ) {
+      return "WBA"
+    } else {
+      return ""
     } 
   }
 
