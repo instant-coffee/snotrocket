@@ -1,0 +1,22 @@
+.container__score {
+  display: inline-block;
+  padding: 1.5rem;
+  background: #000;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px -1px #cfcfcf;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+}
+
+.percentage {
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+}
+
+.scoreValue {
+  color: red;;
+}
