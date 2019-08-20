@@ -17,7 +17,8 @@ class PowerForm extends React.Component {
       valueB: 0,
       valueC: 0,
       fatigueVarienceA: 0,
-      fatigueVarienceB: 0
+      fatigueVarienceB: 0,
+      zone: this.props.zone,
     };
   }
 
@@ -60,8 +61,8 @@ class PowerForm extends React.Component {
               </div>
               <div className="container__fatigue-values">
                 <h3 className="title fatigue-title">Fatigue Percentage</h3>
-                <ScoreValue percentage={this.state.fatigueVarienceA} title="5 second fatigue" />
-                <ScoreValue percentage={this.state.fatigueVarienceB} title="10 second fatigue" />
+                <ScoreValue percentage={this.state.fatigueVarienceA} title="5 second fatigue" time={`${this.props.zoneT}a`}/>
+                <ScoreValue percentage={this.state.fatigueVarienceB} title="10 second fatigue" time={`${this.props.zoneT}a`}/>
               </div>
             </div>
           </div>
