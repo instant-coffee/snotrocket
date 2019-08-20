@@ -60,8 +60,8 @@ class PowerForm extends React.Component {
               </div>
               <div className="container__fatigue-values">
                 <h3 className="title fatigue-title">Fatigue Percentage</h3>
-                <ScoreValue percentage={this.state.fatigueVarienceA} title="5 second" />
-                <ScoreValue percentage={this.state.fatigueVarienceB} title="10 second" />
+                <ScoreValue percentage={this.state.fatigueVarienceA} title="5 second fatigue" />
+                <ScoreValue percentage={this.state.fatigueVarienceB} title="10 second fatigue" />
               </div>
             </div>
           </div>

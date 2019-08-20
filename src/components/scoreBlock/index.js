@@ -19,12 +19,24 @@ class ScoreValue extends React.Component {
   }
 
   toggleScoreValue(value) {
-    this.state.score === value ? this.setState({score: ""}) : this.setState({score: value})
+    let newValue = this.whatIsScore(value)
+    this.state.score === newValue ? this.setState({score: ""}) : this.setState({score: newValue})
+  }
+
+  whatIsScore = ( percentage ) => {
+    if (percentage <= 5){
+      return "WAA"
+    } else if ( (percentage > 5 ) && (percentage <= 10) ) {
+      return "AA"
+    }
+    else {
+      return "WBA"
+    } 
   }
 
   render() {
     return (
-      <div className={scoreBlock.container__score} onClick={ () => this.toggleScoreValue("WAA") }>
+      <div className={scoreBlock.container__score} onClick={ () => this.toggleScoreValue(this.state.percentage) }>
         <div className={scoreBlock.title}>{ this.props.title }</div>
         <div className={scoreBlock.percentage}>{ formatP(this.state.percentage) }</div>
         <div className={scoreBlock.scoreValue}>{ this.state.score }</div>
