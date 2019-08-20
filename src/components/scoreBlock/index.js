@@ -16,14 +16,13 @@ class ScoreValue extends React.Component {
     return `${p}%`
   }
 
-  displayScoreValue(value) {
-    this.setState({score: value})
-
+  toggleScoreValue(value) {
+    this.state.score === value ? this.setState({score: ""}) : this.setState({score: value})
   }
 
   render() {
     return (
-      <div className={scoreBlock.container__score} onClick={ () => this.displayScoreValue("WAA") }>
+      <div className={scoreBlock.container__score} onClick={ () => this.toggleScoreValue("WAA") }>
         <div className={scoreBlock.title}>{ this.props.title }</div>
         <div className={scoreBlock.percentage}>{ this.formatP(this.state.percentage) }</div>
         <div className={scoreBlock.scoreValue}>{ this.state.score }</div>
