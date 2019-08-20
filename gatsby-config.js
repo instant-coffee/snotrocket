@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Fatigue profile calculater`,
+    title: `Snot Rocket Data`,
     description: `Input power data to find your fatigue profile`,
     author: `@instant-coffee`,
   },
